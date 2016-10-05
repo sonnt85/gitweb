@@ -17,7 +17,7 @@
 #
 
 name "registry"
-default_version "v2.4.1"
+default_version "v2.5.1"
 
 license "Apache-2.0"
 license_file "https://raw.githubusercontent.com/docker/distribution/#{version}/LICENSE"
