@@ -18,6 +18,7 @@ omnibus-gitlab repository.
 - Make hideRefs option of git default in omnibus installations e7484a9b
 - Use internal GitLab mirrors of rb-readline and registry as cache 2d137543
 - Adding attribute for gitlab-shell custom hooks f753e1f0
+- Convert build make task to a rake task, with log level option 5f65794d
 
 8.14.5
 
