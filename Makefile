@@ -36,7 +36,7 @@ build:
 # does a rebuild every call, we're not setting that specific dependency for when
 # working on changes to support/license_check.sh. See the order of `test`.
 license_check:
-	bash support/license_check.sh
+	bundle exec rake license_check
 # If this task were called 'release', running 'make release' would confuse Make
 # because there exists a file called 'release.sh' in this directory. Make has
 # built-in rules on how to build .sh files. By calling this task do_release, it
