@@ -1,5 +1,6 @@
 require 'fileutils'
 
+desc "Purge existing cache"
 namespace :build do
   task :purge do
     [

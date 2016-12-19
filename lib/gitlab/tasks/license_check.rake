@@ -1,3 +1,4 @@
+desc "Check licenses of bundled softwares"
 namespace :license do
   task :check do
 
