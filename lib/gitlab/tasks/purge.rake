@@ -12,7 +12,7 @@ namespace :build do
 
       # Force a new download of Curl's certificate bundle because it gets updated
       # upstream silently once every while
-      "/var/cache/omnibus/cache/cacert.perm",
+      "/var/cache/omnibus/cache/cacert.pem",
 
       # Clear out old packages to prevent uploading them a second time to S3
       "/var/cache/omnibus/pkg"
