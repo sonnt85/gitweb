@@ -2,7 +2,7 @@ require 'fileutils'
 
 desc "Purge existing cache"
 namespace :build do
-  task :purge do
+  task :purge_cache do
     [
       # Force a new clone of gitlab-rails because we change remotes for CE/EE
       "/var/cache/omnibus/src/gitlab-rails",
