@@ -8,14 +8,14 @@ namespace :license do
 
     install_dir = File.open('config/projects/gitlab.rb').grep(/install_dir *"/)[0].match(/install_dir[ \t]*"(?<install_dir>.*)"/)['install_dir']
 
-    if not File.exists?(install_dir)
+    if File.exists?(install_dir)
+      puts "Checking licenses via the contents of '#{install_dir}/LICENSE'"
+    else
       puts "Unable to retrieve install_dir, thus unable to check #{install_dir}/LICENSE"
       exit 1
-    else
-      puts "Checking licenses via the contents of '#{install_dir}/LICENSE'"
     end
 
-    if not File.exists?("#{install_dir}/LICENSE")
+    unless File.exists?("#{install_dir}/LICENSE")
       puts "Unable to open #{install_dir}/LICENSE"
       exit 1
     end
