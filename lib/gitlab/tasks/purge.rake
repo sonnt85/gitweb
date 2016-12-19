@@ -1,23 +1,25 @@
 require 'fileutils'
 
-task :purge do
-  [
-    # Force a new clone of gitlab-rails because we change remotes for CE/EE
-    "/var/cache/omnibus/src/gitlab-rails",
+namespace :build do
+  task :purge do
+    [
+      # Force a new clone of gitlab-rails because we change remotes for CE/EE
+      "/var/cache/omnibus/src/gitlab-rails",
 
-    # Avoid mysterious GitFetcher omnibus errors
-    "/var/cache/omnibus/src/gitlab-shell",
-    "/var/cache/omnibus/src/gitlab-workhorse",
+      # Avoid mysterious GitFetcher omnibus errors
+      "/var/cache/omnibus/src/gitlab-shell",
+      "/var/cache/omnibus/src/gitlab-workhorse",
 
-    # Force a new download of Curl's certificate bundle because it gets updated
-    # upstream silently once every while
-     "/var/cache/omnibus/cache/cacert.perm",
+      # Force a new download of Curl's certificate bundle because it gets updated
+      # upstream silently once every while
+      "/var/cache/omnibus/cache/cacert.perm",
 
-    # Clear out old packages to prevent uploading them a second time to S3
-    "/var/cache/omnibus/pkg"
-  ].each do |path|
-    FileUtils.rm_r path, :force => true, :secure => true
+      # Clear out old packages to prevent uploading them a second time to S3
+      "/var/cache/omnibus/pkg"
+    ].each do |path|
+      FileUtils.rm_r path, :force => true, :secure => true
+    end
+    FileUtils.rm_r 'pkg', :force => true, :secure => true
+    FileUtils.mkdir_p 'pkg'
   end
-  FileUtils.rm_r 'pkg', :force => true, :secure => true
-  FileUtils.mkdir_p 'pkg'
 end
