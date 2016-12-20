@@ -1,7 +1,9 @@
 stages:
+  - initialize
   - prepare
   - tests
   - post-test
+  - complete
   - package
   - notification_fail
   - extra
@@ -25,6 +27,13 @@ before_script:
     expire_in: 31d
     paths:
     - knapsack/
+
+get-report:
+  <<: *knapsack-state
+  stage: initialize 
+  before_script: []
+  script:
+    - echo "Initializing"
 
 .knapsack: &prepare_knapsack
   <<: *knapsack-state
@@ -84,6 +93,14 @@ Ubuntu 16.04 knapsack: *prepare_knapsack
   only:
     - tags@gitlab-org/omnibus-gitlab
     - branches@gitlab-org/omnibus-gitlab
+
+propogate-report:
+  <<: *knapsack-state
+  stage: complete
+  before_script: []
+  script:
+    - echo "Propagating Cache"
+
 
 Centos 6 update-knapsack: *update_knapsack
 Centos 7 update-knapsack: *update_knapsack
