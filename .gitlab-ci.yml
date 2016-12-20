@@ -18,7 +18,7 @@ before_script:
 .knapsack-state: &knapsack-state
   services: []
   cache:
-    key: "knapsack"
+    key: "$CI_BUILD_NAME"
     paths:
     - knapsack/
   artifacts:
@@ -29,6 +29,7 @@ before_script:
 .knapsack: &prepare_knapsack
   <<: *knapsack-state
   stage: prepare
+  before_script: []
   script:
     - JOB_NAME=( $CI_BUILD_NAME )
     - export DISTRO_NAME=${JOB_NAME[0]}
@@ -73,6 +74,7 @@ Ubuntu 16.04 knapsack: *prepare_knapsack
 .update-knapsack: &update_knapsack
   <<: *knapsack-state
   stage: post-test
+  before_script: []
   script:
     - JOB_NAME=( $CI_BUILD_NAME )
     - export DISTRO_NAME=${JOB_NAME[0]}
