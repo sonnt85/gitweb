@@ -20,7 +20,7 @@ before_script:
 .knapsack-state: &knapsack-state
   services: []
   cache:
-    key: "$CI_BUILD_NAME"
+    key: "knapsack"
     paths:
     - knapsack/
   artifacts:
