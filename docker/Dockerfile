@@ -18,9 +18,9 @@ RUN rm -rf /etc/update-motd.d /etc/motd /etc/motd.dynamic
 RUN ln -fs /dev/null /run/motd.dynamic
 
 # Copy assets
-COPY RELEASE /
+#COPY RELEASE /
 COPY assets/ /assets/
-RUN /assets/setup
+RUN chmod 700 /assets/setup; chmod /assets/wrapper;
 
 # Allow to access embedded tools
 ENV PATH /opt/gitlab/embedded/bin:/opt/gitlab/bin:/assets:$PATH
