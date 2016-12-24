@@ -43,6 +43,7 @@ sed -i -r -e "s~^# maxmemory.+~maxmemory 1gb~g" /etc/redis/redis.conf
 redis\['enable'\] = true~g"  /etc/gitlab/gitlab.rb
 	sed -i -r -e "s~^# gitlab_rails\['smtp_enable'\].+~\
 gitlab_rails\['smtp_enable'\] = true~g" /etc/gitlab/gitlab.rb
+        sed -i -r -e "s~^# external_url.+~external_url '$EXTERNAL_HOST'~g" /etc/gitlab/gitlab.rb
         sed -i -r -e "s~^# gitlab_rails\['gitlab_shell_ssh_port'\].+~\
 gitlab_rails\['gitlab_shell_ssh_port'\] = $SSH_PORT~g"  /etc/gitlab/gitlab.rb
 	sed -i -r -e "s~^# gitlab_rails\['smtp_address'\].+~\
