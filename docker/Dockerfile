@@ -11,6 +11,7 @@ RUN apt-get update -q \
       vim \
       nano \
       patch \
+      net-tools \
       git-annex && rm -rf /var/lib/apt/lists/*
 
 # Remove MOTD
@@ -29,7 +30,7 @@ ENV PATH /opt/gitlab/embedded/bin:/opt/gitlab/bin:/assets:$PATH
 ENV TERM xterm
 
 # Expose web & ssh
-EXPOSE 443 80 22
+EXPOSE 443 80 22 2289
 
 # Define data volumes
 VOLUME ["/etc/gitlab", "/var/opt/gitlab", "/var/log/gitlab"]
