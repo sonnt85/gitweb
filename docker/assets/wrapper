@@ -37,7 +37,6 @@ sleep 3s
 # Copy gitlab.rb for the first time
 if [[ ! -e /etc/gitlab/gitlab.rb ]]; then
 	echo "Installing gitlab.rb config..."
-sed -i -r -e "s~^# maxmemory.+~maxmemory 1gb~g" /etc/redis/redis.conf
 	cp /opt/gitlab/etc/gitlab.rb.template /etc/gitlab/gitlab.rb
 	sed -i -r -e "s~^# redis\['enable'\].+~\
 redis\['enable'\] = true~g"  /etc/gitlab/gitlab.rb
