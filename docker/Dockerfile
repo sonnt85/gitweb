@@ -11,10 +11,8 @@ RUN apt-get update -q \
       vim \
       nano \
       patch \
-      redis-server \
       net-tools \
       git-annex && rm -rf /var/lib/apt/lists/*
-RUN sed -i -r -e "s~^maxmemory.+~maxmemory 1gb~g" /etc/redis/redis.conf
 #RUN ls -lhas /opt/gitlab/etc/; sed -i -r -e "s~^# redis\['enable'\]y.+~maxmemory 1gb~g"  /opt/gitlab/etc/gitlab.rb.template
 # Remove MOTD
 RUN rm -rf /etc/update-motd.d /etc/motd /etc/motd.dynamic
