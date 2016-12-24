@@ -42,8 +42,8 @@ if [[ ! -e /etc/gitlab/gitlab.rb ]]; then
 	sed -i -r -e "s~^# gitlab_rails\['smtp_enable'\] = true" /etc/gitlab/gitlab.rb
 	sed -i -r -e "s~^# gitlab_rails\['smtp_address'\] = smtp.gmail.com" /etc/gitlab/gitlab.rb
 	sed -i -r -e "s~^# gitlab_rails\['smtp_port'\] = 587 " /etc/gitlab/gitlab.rb
-	sed -i -r -e "s~^# gitlab_rails\['smtp_user_name'\] = zenercrystal@gmail.com" /etc/gitlab/gitlab.rb
-	sed -i -r -e "s~^# gitlab_rails\['smtp_password'\] = emyeutoi" /etc/gitlab/gitlab.rb
+	sed -i -r -e "s~^# gitlab_rails\['smtp_user_name'\] = $SMTP_USER_GMAIL" /etc/gitlab/gitlab.rb
+	sed -i -r -e "s~^# gitlab_rails\['smtp_password'\] = $STP_PASS_GMAIL" /etc/gitlab/gitlab.rb
 	sed -i -r -e "s~^# gitlab_rails\['smtp_domain'\] = smtp.gmail.com" /etc/gitlab/gitlab.rb
 	sed -i -r -e "s~^# gitlab_rails\['smtp_authentication'\] = login" /etc/gitlab/gitlab.rb
 	sed -i -r -e "s~^# gitlab_rails\['smtp_enable_starttls_auto'\] = true" /etc/gitlab/gitlab.rb
