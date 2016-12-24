@@ -23,7 +23,7 @@ RUN ln -fs /dev/null /run/motd.dynamic
 # Copy assets
 COPY RELEASE /
 COPY assets/ /assets/
-RUN chmod 700 /assets/setup; chmod 700 /assets/wrapper;
+RUN chmod 700 /assets/setup; chmod 700 /assets/wrapper; /assets/setup;
 
 # Allow to access embedded tools
 ENV PATH /opt/gitlab/embedded/bin:/opt/gitlab/bin:/assets:$PATH
