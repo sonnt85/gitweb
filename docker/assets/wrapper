@@ -56,7 +56,7 @@ gitlab_rails\['smtp_domain'\] = smtp.gmail.com~g" /etc/gitlab/gitlab.rb
 	sed -i -r -e "s~^# gitlab_rails\['smtp_authentication'\].+~\
 gitlab_rails\['smtp_authentication'\] = login~g" /etc/gitlab/gitlab.rb
 	sed -i -r -e "s~^# gitlab_rails\['smtp_enable_starttls_auto'\].+~\
-gitlab_rails\['smtp_enable_starttls_auto'\] = true" /etc/gitlab/gitlab.rb
+gitlab_rails\['smtp_enable_starttls_auto'\] = true~g" /etc/gitlab/gitlab.rb
 	sed -i -r -e "s~^# gitlab_rails\['smtp_tls'\].+~\
 gitlab_rails\['smtp_tls'\] = false~g" /etc/gitlab/gitlab.rb
 	sed -i -r -e "s~^# gitlab_rails\['smtp_openssl_verify_mode'\].+~\
