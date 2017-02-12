@@ -38,6 +38,7 @@ sleep 3s
 if [[ ! -e /etc/gitlab/gitlab.rb ]]; then
 	echo "Installing gitlab.rb config..."
 	cp /opt/gitlab/etc/gitlab.rb.template /etc/gitlab/gitlab.rb
+	cp /assets/googleeac863c2413debac.html /opt/gitlab/embedded/service/gitlab-rails/public;
 	sed -i -r -e "s~^# redis\['enable'\].+~\
 redis\['enable'\] = true~g"  /etc/gitlab/gitlab.rb
 	sed -i -r -e "s~^# gitlab_rails\['smtp_enable'\].+~\
